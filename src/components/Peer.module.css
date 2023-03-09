@@ -1,0 +1,31 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 80vh; /* set height of container to viewport height */
+    width: 15vh;
+  }
+  
+  .square {
+    flex: 1; /* set each square to grow to fill available space */
+    border: 1px solid black; /* add border for visual clarity */
+  }
+
+  .bottom {
+    position: relative;
+  }
+
+  .elevator {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .buttonSquare {
+    flex: 1; /* set each square to grow to fill available space */
+    border: 0px solid black; /* add border for visual clarity */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  }

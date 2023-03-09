@@ -1,0 +1,24 @@
+import Elevator from '../Elevator/Elevator'
+import Grid from '@mui/material/Grid'
+import BoxComponent from './BoxComponent'
+
+const ElevatorShaft = (props) => {
+    return (
+        <div>
+            <Grid container spacing={0}>
+                
+                <Grid item xs={6}>
+                    <BoxComponent/>
+                </Grid>
+                <Grid item xs={6}>
+                    <BoxComponent/>
+                </Grid>
+            </Grid>
+    
+            <Elevator />
+
+        </div>
+    )
+}
+
+export default ElevatorShaft;

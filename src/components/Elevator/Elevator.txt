@@ -1,0 +1,18 @@
+import { React, useState } from 'react';
+import SvgElevator from './SvgElevator'
+
+
+function Elevator() {
+    const [currentFloor, setCurrentFloor]  = useState(0);
+    const [isMoving, setIsMoving] = useState(false);
+    const [color, setColor] = useState('grey');
+
+    return (
+        <div>   
+            <SvgElevator fill={color}/>
+        </div>
+        
+    )
+}
+
+export default Elevator;
