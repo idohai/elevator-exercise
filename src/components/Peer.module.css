@@ -15,6 +15,7 @@
     position: relative;
     flex: 1; /*set each square to grow to fill available space*/
     border: 1px solid black; /*add border for visual clarity*/
+    background-color: white;
   }
 
   /* in Peer (currently line 56, 3rd in the return statement):
@@ -53,4 +54,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .floorNumbers {
+    flex: 1;
+    border: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    padding-right: 10%;
   }

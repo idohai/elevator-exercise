@@ -51,10 +51,7 @@ const ElevatorSystem = () => {
 
     return (
         <>
-            <Grid container columns={numOfElevators+1} style={containerStyles}>
-                {peers}
-                <CallButtonGrid />
-            </Grid>
+            {peers}
         </>
     )
 }
