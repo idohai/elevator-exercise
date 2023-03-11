@@ -36,7 +36,8 @@ const CallButton = forwardRef((props, ref) => {
 
     return (
         <Button
-            variant={buttonVariant} color={buttonColor} onClick={callElevator}>
+            variant={buttonVariant} color={buttonColor} onClick={callElevator}
+            sx={{minWidth: 2/3, textTransform: 'none'}}> 
             {buttonText}
         </Button>
     )
