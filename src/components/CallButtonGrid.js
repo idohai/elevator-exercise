@@ -3,7 +3,7 @@ import { React, useRef, createRef } from 'react'
 
 import { useSelector } from 'react-redux';
 import CallButton from './Buttons/CallButton';
-import styles from "./Peer.module.css";
+import styles from "./Styles.module.css";
 
 
 const CallButtonGrid = () => {

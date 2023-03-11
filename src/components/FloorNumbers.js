@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { getFloorText } from './Utils'
 
 
-import styles from './Peer.module.css'
+import styles from './Styles.module.css'
 const FloorNumbers = () => {
 
     const numOfFloors = useSelector (state => state.numOfFloors)

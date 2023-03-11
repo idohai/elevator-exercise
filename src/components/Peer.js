@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { elevatorActions } from '../store/store'
 
 import SvgElevator from "./Elevator/SvgElevator";
-import styles from "./Peer.module.css";
+import styles from "./Styles.module.css";
 import ding from '../assests/elevator-ding-at-arenco-tower-dubai.mp3'
 
 
@@ -20,7 +20,7 @@ const Peer = forwardRef((props, ref) => {
     const [style, setStyle] = useState({
         '--target-floor': 0,
         '--elevator-position': 0,
-        '--elevator-step': 0
+        '--elevator-step': 0,
     })
 
     const audio = new Audio(ding);
@@ -53,11 +53,10 @@ const Peer = forwardRef((props, ref) => {
             setIsIdle(true);
             audio.play();
             dispatch(elevatorActions.setButtonAsArrived(elevatorPosition));
-        }
-        else {
+    
             setTimeout(() => {
                 setColor('black');
-                dispatch(elevatorActions.activateElevator({elevatorId, elevatorPosition}));
+                dispatch(elevatorActions.activateElevator({elevatorId, elevatorPosition})); //set gloval elevator position state to the current floor. this allows the elevtaor to be selected again.
             }, 2000);
         }
         setAnimationEnd(false);

@@ -18,30 +18,25 @@
     background-color: white;
   }
 
-  /* in Peer (currently line 56, 3rd in the return statement):
-  <div className={`${styles.square} ${i===numOfFloors-1 ? styles.bottom : ''}`} key={i}> */
-  /* .bottom {
-    position: relative;
-  } */
-
   .elevator {
     position: absolute;
     bottom: calc(103%*var(--elevator-position));
     left: calc(50% - (15vh / 2));
-    /* transform: translateX(-50%); */
-  }
 
-  .elevator:not(.moving) {
-    /* fill: black; */
   }
 
   .elevator.moving {
     animation-name: elevator-move;
-    animation-duration: 1s;
+    animation-duration: max(0.1s, calc(0.5s * max(var(--elevator-step), calc(-1*var(--elevator-step))))); /*explanation below*/
     animation-timing-function: linear;
-    animation-iteration-count: 1;
+    animation-iteration-count: --elevator-speed;
     animation-fill-mode: forwards;
   }
+  /* animation duration is calculated to be 0.5s times the number of floors the elevator have to move.
+        the --elevator-step can be negative so max() is used as alternative to abs()
+        in addition to that, if --elevator-step equals to 0 so the animation will never end. 
+        thats why the first max(0.1, ...) is needed.
+  */
 
   @keyframes elevator-move {
     from { transform: translateY(0); }

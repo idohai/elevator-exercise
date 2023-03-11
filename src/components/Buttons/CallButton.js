@@ -15,6 +15,7 @@ const CallButton = forwardRef((props, ref) => {
     const [buttonColor, setButtonColor] = useState('success');
     const [buttonVariant, setButtonVariant] = useState('contained');
     const [buttonText, setButtonText] = useState('Call');
+    const [isDisabled, setIsDisabled] = useState(false);
     
     useEffect( () => {
         if (buttonState) {
@@ -25,19 +26,21 @@ const CallButton = forwardRef((props, ref) => {
         else {
             setButtonVariant('contained');
             setButtonText('Call');
+            setIsDisabled(false);
         }
 
     }, [buttonState]);
     const callElevator = () => {
         setButtonColor('error');
         setButtonText('Waiting');
+        setIsDisabled(true);
         dispatch(elevatorActions.callElevator(buttonId))
     }
 
     return (
         <Button
             variant={buttonVariant} color={buttonColor} onClick={callElevator}
-            sx={{minWidth: 2/3, textTransform: 'none'}}> 
+            sx={{minWidth: 2/3, textTransform: 'none', pointerEvents: isDisabled ? "none" : "all"}}> 
             {buttonText}
         </Button>
     )
