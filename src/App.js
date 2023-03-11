@@ -1,15 +1,17 @@
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ElevatorSystem from './components/ElevatorSystem'
-// import Elevator from './components/Elevator/Elevator';
 
+import LandingPage from './pages/LandingPage'
+import BuildingPage from './pages/BuildingPage'
+
+const router = createBrowserRouter([
+  { path: '/', element: <LandingPage/>},
+  { path: '/building', element: <BuildingPage />}
+])
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-      </header>
-      <main>
-        <ElevatorSystem numOfElevators={5} floors={10}/>
-        {/* <Elevator/> */}
-      </main>
+      <RouterProvider router={router} />
     </div>
   );
 }

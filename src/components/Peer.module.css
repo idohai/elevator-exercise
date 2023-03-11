@@ -1,4 +1,10 @@
+:root {
+  --target-floor: 0;
+  --elevator-position: 0;
+  --elevator-step: 0;
+}
 .container {
+    position: relative;
     display: flex;
     flex-direction: column;
     height: 80vh; /* set height of container to viewport height */
@@ -6,26 +12,45 @@
   }
   
   .square {
-    flex: 1; /* set each square to grow to fill available space */
-    border: 1px solid black; /* add border for visual clarity */
+    position: relative;
+    flex: 1; /*set each square to grow to fill available space*/
+    border: 1px solid black; /*add border for visual clarity*/
   }
 
-  .bottom {
+  /* in Peer (currently line 56, 3rd in the return statement):
+  <div className={`${styles.square} ${i===numOfFloors-1 ? styles.bottom : ''}`} key={i}> */
+  /* .bottom {
     position: relative;
-  }
+  } */
 
   .elevator {
     position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    bottom: calc(103%*var(--elevator-position));
+    left: calc(50% - (15vh / 2));
+    /* transform: translateX(-50%); */
   }
 
+  .elevator:not(.moving) {
+    /* fill: black; */
+  }
+
+  .elevator.moving {
+    animation-name: elevator-move;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes elevator-move {
+    from { transform: translateY(0); }
+    to { transform: translateY(calc(-130%*var(--elevator-step))); }
+  }  
+
   .buttonSquare {
-    flex: 1; /* set each square to grow to fill available space */
-    border: 0px solid black; /* add border for visual clarity */
+    flex: 1;
+    border: 0px solid black;
     display: flex;
     align-items: center;
     justify-content: center;
-    
   }

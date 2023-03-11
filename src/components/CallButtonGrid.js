@@ -1,21 +1,28 @@
-import { Button } from '@mui/material';
+
+import { React, useRef, createRef } from 'react'
+
+import { useSelector } from 'react-redux';
+import CallButton from './Buttons/CallButton';
 import styles from "./Peer.module.css";
 
 
-const CallButtonGrid = ({ numOfFloors }) => {
-    
-    const callElevator = (floor) => {
-        return(floor)
+const CallButtonGrid = () => {
 
-    }
+    const numOfFloors = useSelector (state => state.numOfFloors)
+    
+    const buttonRefs = useRef([]);
+    buttonRefs.current = [...Array(numOfFloors)].map((_,i) => buttonRefs.current[i] ?? createRef());
+
+    const buttons = [...Array(numOfFloors)].map((_, i) => (
+        <div className={styles.buttonSquare} key={numOfFloors-i-1}>
+            <CallButton buttonId={numOfFloors-1-i} ref={buttonRefs.current[i]}
+            />
+        </div>
+    ))
 
     return (
         <div className={styles.container}>
-            {[...Array(numOfFloors)].map((_, i) => (
-                <div className={styles.buttonSquare} key={numOfFloors-i-1}>
-                    <Button variant='contained' color='success' onClick={callElevator(numOfFloors-i-1)}>Call({numOfFloors-i-1})</Button>
-                </div>
-            ))}
+            {buttons}
         </div>
     )
 }

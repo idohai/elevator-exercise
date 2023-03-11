@@ -1,0 +1,26 @@
+1. make elevator (peer?) component who represents 1 elevator in a building.
+    then, make this component work. pass a number to a function and make the elevator move to the desired floor.
+
+    breakdown:
+        * ElevatorSVG Icon component to be used by the peer. This may be the elevator component iself.
+        * Peer component that has x(10) floors and a function to move the elevator in it (transition.)
+            this componenet will store:
+             - current elevator position
+             - current elevator state (isIdle?)
+             - function to move the elevator..
+             - getter for the floor position
+
+
+        COpy this element to building or ElevatorSystem
+        then:
+            - Write logic to find the nearest elevator
+            - Call correct peer to send the elevator!
+
+
+2. Learn Styling React Components 
+
+3. Add landing page with number of elevator and floors,
+    then send the number of floors to the store and wrap store around the main page of application (with elevators and shit)
+
+    
+        
