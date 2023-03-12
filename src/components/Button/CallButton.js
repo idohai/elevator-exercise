@@ -1,6 +1,6 @@
 import { React, useState, useEffect, forwardRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { elevatorActions } from '../store/store';
+import { elevatorActions } from '../../store/store';
 import { Button } from '@mui/material';
 
 const CallButton = forwardRef((props, ref) => {
@@ -21,8 +21,8 @@ const CallButton = forwardRef((props, ref) => {
             setButtonColor('success');
             setButtonVariant('outlined');
             setButtonText('Arrived');
-            const timeToReach = (performance.now() - callTime)/1000; //Bonus - format this number to min. sec and present (I'm not sure where)
-            console.log(timeToReach);
+            const timeToReach = (performance.now() - callTime)/1000; //Bonus - format this number to {min. sec} and present (I'm not sure where)
+            console.log(`Time to reach floor ${buttonId}: ${timeToReach}`);
         }
         else {
             setButtonVariant('contained');
@@ -30,7 +30,7 @@ const CallButton = forwardRef((props, ref) => {
             setIsDisabled(false);
         }
 
-    }, [buttonState]);
+    }, [buttonState, callTime]);
 
     const callElevator = () => {
         setCallTime(performance.now());

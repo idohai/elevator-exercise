@@ -1,8 +1,8 @@
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Grid';
 import ElevatorSystem from '../components/ElevatorSystem';
-import CallButtonGrid from '../components/CallButtonGrid';
-import FloorNumbers from '../components/FloorNumbers';
+import CallButtonGrid from '../components/LayoutHelpers/CallButtonGrid';
+import FloorNumbers from '../components/LayoutHelpers/FloorNumbers';
 
 
 const BuildingPage = () => {

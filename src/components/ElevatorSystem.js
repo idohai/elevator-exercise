@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 
-import Peer from './Peer'
+import Peer from './Elevator/Peer'
 import { elevatorActions } from '../store/store'
 import { findClosestElevator } from './Utils';
 

@@ -1,10 +1,10 @@
 import { React, useState, useEffect, forwardRef, useImperativeHandle } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { elevatorActions } from '../store/store'
+import { elevatorActions } from '../../store/store'
 
 import SvgElevator from "./SvgElevator";
-import styles from "./Styles.module.css";
-import ding from '../assests/elevator-ding-at-arenco-tower-dubai.mp3'
+import styles from "../Styles.module.css";
+import ding from '../../assests/elevator-ding-at-arenco-tower-dubai.mp3'
 
 
 const Peer = forwardRef((props, ref) => {
