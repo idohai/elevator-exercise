@@ -6,7 +6,7 @@ const initialState = {
     elevatorsPosition: Array(5).fill(0),
     targetQueue: [],
     buttonsState: Array(10).fill(false),
-    occupied: false
+    // occupied: false
 }
 
 const elevatorSlice = createSlice({
@@ -31,16 +31,16 @@ const elevatorSlice = createSlice({
         activateElevator(state, action) {
             state.elevatorsPosition[action.payload.elevatorId] = action.payload.elevatorPosition;
             state.buttonsState[action.payload.elevatorPosition] = false;
-            if (state.occupied) {
-                state.occupied = false;
-            }
+            // if (state.occupied) {
+            //     state.occupied = false;
+            // }
         },
         setButtonAsArrived(state, action) {
             state.buttonsState[action.payload] = true;
         },
-        allOccupied(state) {
-            state.occupied = true;
-        }     
+        // allOccupied(state) {
+        //     state.occupied = true;
+        // }     
     }
 })
 

@@ -1,7 +1,7 @@
 import { React, useState, useEffect, forwardRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { elevatorActions } from '../../store/store';
-import { Button } from '@mui/material';
+import  Button  from '@mui/material/Button';
 
 const CallButton = forwardRef((props, ref) => {
     
@@ -30,7 +30,7 @@ const CallButton = forwardRef((props, ref) => {
             setIsDisabled(false);
         }
 
-    }, [buttonState, callTime]);
+    }, [buttonState]);
 
     const callElevator = () => {
         setCallTime(performance.now());
