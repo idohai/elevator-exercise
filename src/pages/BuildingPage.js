@@ -16,7 +16,7 @@ const BuildingPage = () => {
     };
     return (
         <div style={containerStyles}>
-            <Stack spacing={4}>
+            <Stack>
                 <h1>Elevator exercise</h1>
                 <Grid container>
                     <Grid item>

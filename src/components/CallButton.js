@@ -1,6 +1,5 @@
 import { React, useState, useEffect, forwardRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
 import { elevatorActions } from '../store/store';
 import { Button } from '@mui/material';
 
@@ -14,12 +13,16 @@ const CallButton = forwardRef((props, ref) => {
     const [buttonVariant, setButtonVariant] = useState('contained');
     const [buttonText, setButtonText] = useState('Call');
     const [isDisabled, setIsDisabled] = useState(false);
+    const [callTime, setCallTime] = useState(0);
+
     
-    useEffect( () => {
+    useEffect( () => { //run when buttonState changes. true when elevator reached the floor, back to false 2 seconds after elevator reached the floor.
         if (buttonState) {
             setButtonColor('success');
             setButtonVariant('outlined');
             setButtonText('Arrived');
+            const timeToReach = (performance.now() - callTime)/1000; //Bonus - format this number to min. sec and present (I'm not sure where)
+            console.log(timeToReach);
         }
         else {
             setButtonVariant('contained');
@@ -28,7 +31,9 @@ const CallButton = forwardRef((props, ref) => {
         }
 
     }, [buttonState]);
+
     const callElevator = () => {
+        setCallTime(performance.now());
         setButtonColor('error');
         setButtonText('Waiting');
         setIsDisabled(true);
