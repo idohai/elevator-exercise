@@ -1,8 +1,7 @@
-
 import { React, useRef, createRef } from 'react'
 
 import { useSelector } from 'react-redux';
-import CallButton from './Buttons/CallButton';
+import CallButton from './CallButton';
 import styles from "./Styles.module.css";
 
 

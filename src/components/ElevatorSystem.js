@@ -1,22 +1,14 @@
 import { React, useEffect, useRef, createRef } from 'react'
-import { Grid } from '@mui/material';
+import { Grid, Box } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { elevatorActions } from '../store/store'
 
 import Peer from './Peer'
-import CallButtonGrid from './CallButtonGrid'
 import { findClosestElevator } from './Utils';
 
 const ElevatorSystem = () => {
     
-    const containerStyles = {
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "#e5e5e5",
-    }
-
     const numOfElevators = useSelector(state => state.numOfElevators);
     const elevatorsPosition = useSelector(state => state.elevatorsPosition)
     const targetQueue = useSelector(state => state.targetQueue);
@@ -50,9 +42,9 @@ const ElevatorSystem = () => {
     ));
 
     return (
-        <>
+        <Box sx={{display: 'flex', flexDirection: 'row'}}>
             {peers}
-        </>
+        </Box>
     )
 }
 

@@ -3,7 +3,7 @@ import { React, useState, useEffect, forwardRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from '@mui/material';
 
-import { elevatorActions } from '../../store/store'
+import { elevatorActions } from '../store/store'
 
 
 const CallButton = forwardRef((props, ref) => {

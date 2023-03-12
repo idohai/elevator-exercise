@@ -1,5 +1,4 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import ElevatorSystem from './components/ElevatorSystem'
 
 import LandingPage from './pages/LandingPage'
 import BuildingPage from './pages/BuildingPage'

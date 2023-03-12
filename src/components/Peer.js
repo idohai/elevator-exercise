@@ -2,7 +2,7 @@ import { React, useState, useEffect, forwardRef, useImperativeHandle } from 'rea
 import { useSelector, useDispatch } from 'react-redux';
 import { elevatorActions } from '../store/store'
 
-import SvgElevator from "./Elevator/SvgElevator";
+import SvgElevator from "./SvgElevator";
 import styles from "./Styles.module.css";
 import ding from '../assests/elevator-ding-at-arenco-tower-dubai.mp3'
 
@@ -60,7 +60,7 @@ const Peer = forwardRef((props, ref) => {
             }, 2000);
         }
         setAnimationEnd(false);
-    }, [animationEnd])
+    }, [animationEnd, dispatch])
     
 
     useImperativeHandle(ref, () => ({
