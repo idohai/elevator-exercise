@@ -5,7 +5,7 @@ import { getFloorText } from './Utils'
 import styles from './Styles.module.css'
 const FloorNumbers = () => {
 
-    const numOfFloors = useSelector (state => state.numOfFloors)
+    const numOfFloors = useSelector (state => state.numOfFloors);
     
     const floorNumbers = [...Array(numOfFloors)].map((_,i) => {
         const floorNumber = numOfFloors-i-1;
@@ -20,7 +20,7 @@ const FloorNumbers = () => {
         <div className={styles.container}>
             {floorNumbers}
         </div>
-    )
+    );
 }
 
 export default FloorNumbers;

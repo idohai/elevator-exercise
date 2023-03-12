@@ -1,18 +1,18 @@
 import { React, useEffect, useRef, createRef } from 'react'
-import { Grid, Box } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
-
-import { elevatorActions } from '../store/store'
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
 
 import Peer from './Peer'
+import { elevatorActions } from '../store/store'
 import { findClosestElevator } from './Utils';
 
 const ElevatorSystem = () => {
     
     const numOfElevators = useSelector(state => state.numOfElevators);
-    const elevatorsPosition = useSelector(state => state.elevatorsPosition)
+    const elevatorsPosition = useSelector(state => state.elevatorsPosition);
     const targetQueue = useSelector(state => state.targetQueue);
-    const occupied = useSelector(state => state.occupied)
+    const occupied = useSelector(state => state.occupied);
 
     const dispatch = useDispatch();
     const peerRefs = useRef([]);
@@ -20,10 +20,10 @@ const ElevatorSystem = () => {
 
     useEffect(() => {
         if (targetQueue.length !== 0) {
-            const target = targetQueue[0]
+            const target = targetQueue[0];
             const closestElevator = findClosestElevator(target, elevatorsPosition);
             if (closestElevator === -1) { //all elevator are occupied
-                dispatch(elevatorActions.allOccupied())
+                dispatch(elevatorActions.allOccupied());
             }
             else {
                 dispatch(elevatorActions.popQueue()); //remove the target floor from targetQueue.
@@ -33,7 +33,7 @@ const ElevatorSystem = () => {
             }
         }
         
-    },[targetQueue, occupied])
+    },[targetQueue, occupied]);
     
     const peers = [...Array(numOfElevators)].map((_,i) => (
         <Grid item key={i}>
@@ -45,7 +45,7 @@ const ElevatorSystem = () => {
         <Box sx={{display: 'flex', flexDirection: 'row'}}>
             {peers}
         </Box>
-    )
+    );
 }
 
 export default ElevatorSystem;

@@ -1,8 +1,8 @@
-import { Grid, Stack } from '@mui/material';
-
-import ElevatorSystem from "../components/ElevatorSystem"
-import CallButtonGrid from '../components/CallButtonGrid'
-import FloorNumbers from '../components/FloorNumbers'
+import Grid from '@mui/material/Grid';
+import Stack from '@mui/material/Grid';
+import ElevatorSystem from '../components/ElevatorSystem';
+import CallButtonGrid from '../components/CallButtonGrid';
+import FloorNumbers from '../components/FloorNumbers';
 
 
 const BuildingPage = () => {
@@ -13,7 +13,7 @@ const BuildingPage = () => {
         alignItems: "center",
         backgroundColor: "#DEDEDE",
         minHeight: '100vh'
-    }
+    };
     return (
         <div style={containerStyles}>
             <Stack spacing={4}>
@@ -29,7 +29,7 @@ const BuildingPage = () => {
                 </Grid>
             </Stack>
         </div>
-    )
+    );
 }
 
 export default BuildingPage;

@@ -14,28 +14,28 @@ const Peer = forwardRef((props, ref) => {
 
     const { elevatorId } = props;
     const [isIdle, setIsIdle] = useState(true);
-    const [elevatorPosition, setElevatorPosition] = useState(0)
-    const [color, setColor] = useState('black')
+    const [elevatorPosition, setElevatorPosition] = useState(0);
+    const [color, setColor] = useState('black');
     const [animationEnd, setAnimationEnd] = useState(false);
     const [style, setStyle] = useState({
         '--target-floor': 0,
         '--elevator-position': 0,
         '--elevator-step': 0,
-    })
+    });
 
     const audio = new Audio(ding);
 
 
     const moveToFloor = (targetFloor) => {
 
-        dispatch(elevatorActions.deactivateElevator(elevatorId)) // set global elevator position state to INF.
+        dispatch(elevatorActions.deactivateElevator(elevatorId)); // set global elevator position state to INF.
                 
         setElevatorPosition(targetFloor); // set elevator position to the current floor.
         setStyle({
             '--target-floor': targetFloor,
             '--elevator-position': elevatorPosition,
             '--elevator-step': targetFloor-elevatorPosition
-        })        
+        });
         setColor('red');
 
         setIsIdle(false); //fire up the animation.
@@ -43,7 +43,6 @@ const Peer = forwardRef((props, ref) => {
     
     useEffect( () => {
         if (animationEnd){
-
             setStyle({
                 '--target-floor': elevatorPosition,
                 '--elevator-position': elevatorPosition,
@@ -80,7 +79,7 @@ const Peer = forwardRef((props, ref) => {
                 </div>
             ))}
         </div>
-    )
+    );
 });
 
 export default Peer;

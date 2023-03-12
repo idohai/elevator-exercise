@@ -14,7 +14,6 @@ const elevatorSlice = createSlice({
     initialState,
     reducers: {
         initialize(state, action) {
-            console.log("iNIT!")
             state.numOfElevators = parseInt(action.payload.numOfElevators);
             state.numOfFloors = parseInt(action.payload.numOfFloors);
             state.elevatorsPosition = Array(state.numOfElevators).fill(0);
@@ -42,7 +41,6 @@ const elevatorSlice = createSlice({
         allOccupied(state) {
             state.occupied = true;
         }     
-
     }
 })
 

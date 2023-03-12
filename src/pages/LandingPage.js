@@ -2,7 +2,11 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { elevatorActions } from '../store/store';
-import {TextField, Button, Stack, Container} from '@mui/material'
+
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
+import Container from '@mui/material/Container';
 
 
 const LandingPage = () => {
@@ -18,16 +22,16 @@ const LandingPage = () => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-    }
+    };
 
     const submitHandler = (e) => {
         e.preventDefault();
         dispatch(elevatorActions.initialize({
             numOfElevators,
             numOfFloors
-        }))
+        }));
         navigate('/Building');
-    }
+    };
     
     return (
         <div>
@@ -64,7 +68,7 @@ const LandingPage = () => {
                 
             </form>
         </div>
-    )
+    );
 }
 
 export default LandingPage;
