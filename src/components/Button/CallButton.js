@@ -30,7 +30,7 @@ const CallButton = forwardRef((props, ref) => {
             setButtonText('Call');
             setIsDisabled(false);
         }
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [buttonState]);
 
     const callElevator = () => {
