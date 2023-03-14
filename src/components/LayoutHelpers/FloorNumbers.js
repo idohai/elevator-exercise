@@ -14,7 +14,7 @@ const FloorNumbers = () => {
             <div className={styles.floorNumbers} key={i}>
                 <h3>{text}</h3>
             </div>
-        )
+        );
     });
     return (
         <div className={styles.container}>

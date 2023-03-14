@@ -39,8 +39,9 @@ const Peer = forwardRef((props, ref) => {
         setColor('red');
 
         setIsIdle(false); //fire up the animation.
-    }
-    
+    };
+
+    /* animation, color & status handler for the elevator inside this peer  */
     useEffect( () => {
         if (animationEnd){
             setStyle({
@@ -59,7 +60,9 @@ const Peer = forwardRef((props, ref) => {
             }, 2000);
         }
         setAnimationEnd(false);
-    }, [animationEnd, dispatch])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [animationEnd, dispatch]);
+
     
 
     useImperativeHandle(ref, () => ({

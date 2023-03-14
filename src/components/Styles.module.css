@@ -29,7 +29,7 @@
     animation-name: elevator-move;
     animation-duration: max(0.1s, calc(0.5s * max(var(--elevator-step), calc(-1*var(--elevator-step))))); /*explanation below*/
     animation-timing-function: linear;
-    animation-iteration-count: --elevator-speed;
+    animation-iteration-count: --elevator-speed; /*why?? suppose to be 1*/
     animation-fill-mode: forwards;
   }
   /* animation duration is calculated to be 0.5s times the number of floors the elevator have to move.

@@ -12,31 +12,30 @@ const ElevatorSystem = () => {
     const numOfElevators = useSelector(state => state.numOfElevators);
     const elevatorsPosition = useSelector(state => state.elevatorsPosition);
     const targetQueue = useSelector(state => state.targetQueue);
-    // const occupied = useSelector(state => state.occupied);
 
     const dispatch = useDispatch();
     const peerRefs = useRef([]);
     peerRefs.current = [...Array(numOfElevators)].map((_,i) => peerRefs.current[i] ?? createRef());
 
+    /* find closest elevator and dispatch to target. */
     useEffect(() => {
         if (targetQueue.length !== 0) {
             const target = targetQueue[0];
             const closestElevator = findClosestElevator(target, elevatorsPosition);
             if (closestElevator === -1) { //all elevator are occupied
-                // dispatch(elevatorActions.allOccupied());
                 // do nothing
                 // when elevator will finish a job, elevatorsPosition will update and this function will execute again.
             }
             else {
-                dispatch(elevatorActions.popQueue()); //remove the target floor from targetQueue.
+                dispatch(elevatorActions.popQueue());
                 const closestPeer = peerRefs.current[closestElevator].current;
                 closestPeer.moveToFloor(target); //send the closest elevator to target floor.
 
             }
-        }
-        
+        }  
     },[targetQueue, elevatorsPosition, dispatch]);
     
+    /* render peers */
     const peers = [...Array(numOfElevators)].map((_,i) => (
         <Grid item key={i}>
             <Peer elevatorId={i} ref={peerRefs.current[i]}/>

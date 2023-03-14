@@ -14,6 +14,7 @@ const BuildingPage = () => {
         backgroundColor: "#DEDEDE",
         minHeight: '100vh'
     };
+    
     return (
         <div style={containerStyles}>
             <Stack>
